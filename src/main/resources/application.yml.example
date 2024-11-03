@@ -1,0 +1,19 @@
+server:
+  port: 3000
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          okta:
+            issuer-uri: https://{DOMAIN}/
+        registration:
+          okta:
+            client-id: {CLIENT_ID}
+            client-secret: {CLIENT_SECRET}
+            scope: openid,profile,email
+
+logging:
+  level:
+    org.springframework.security: DEBUG
