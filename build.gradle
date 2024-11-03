@@ -34,6 +34,8 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: "${springBootVersion}"
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
 
     //
     // Thymeleaf
