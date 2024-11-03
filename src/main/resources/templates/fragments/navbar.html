@@ -13,7 +13,7 @@
             <button
                     class="navbar-toggler"
                     type="button"
-                    data-toggle="collapse"
+                    data-bs-toggle="collapse"
                     data-target="#navbarNav"
                     aria-controls="navbarNav"
                     aria-expanded="false"
@@ -23,7 +23,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a href="/" class="nav-link">Home</a>
                     </li>
@@ -42,7 +42,7 @@
                                 class="nav-link dropdown-toggle"
                                 href="#"
                                 id="profileDropDown"
-                                data-toggle="dropdown"
+                                data-bs-toggle="dropdown"
                         >
                             <!-- Profile image should be set to the profile picture from the id token -->
                             <img th:src="${profile.get('picture')}"  alt="Profile picture" class="nav-user-profile rounded-circle" width="50"/>
