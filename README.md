@@ -32,7 +32,7 @@ client-id: {YOUR-CLIENT-ID}
 client-secret: {YOUR-CLIENT-SECRET}
 ```
 
-### Running the sample
+## Running the sample
 
 Open a terminal, go to the project root directory and run the following command:
 
@@ -49,3 +49,13 @@ gradlew.bat bootRun
 ```
 
 The application will be accessible at http://localhost:3000.
+
+## Upgrading the sample
+
+Use [OpenRewrite](https://docs.openrewrite.org/) to upgrade to latest Java and SpringBoot.
+
+Define latest recipes in `gradle/openrewrite.gradle`, and run:
+
+```
+./gradlew rewriteRun
+```
