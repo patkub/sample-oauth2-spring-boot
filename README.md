@@ -6,7 +6,7 @@ This is a fork of Okta's [Spring Boot Login - MVC](https://github.com/auth0-samp
 
 ## Requirements
 
-- Java 17
+- Java 21
 
 ## Configuration
 
