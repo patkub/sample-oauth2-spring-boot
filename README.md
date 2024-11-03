@@ -50,6 +50,28 @@ gradlew.bat bootRun
 
 The application will be accessible at http://localhost:3000.
 
+### Running the sample with podman
+
+In order to run the example with [Podman](https://podman.io/docs/installation) you need to have `podman` installed.
+
+You also need to set the client values as explained [previously](#application-configuration).
+
+Execute the command to run Podman for your environment:
+
+Linux or MacOS:
+
+```bash
+sh exec.sh
+```
+
+Windows:
+
+```bash
+.\exec.ps1
+```
+
+The application will be accessible at http://localhost:3000.
+
 ## Upgrading the sample
 
 Use [OpenRewrite](https://docs.openrewrite.org/) to upgrade to latest Java and SpringBoot.
