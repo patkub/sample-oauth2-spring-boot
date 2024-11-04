@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+@Generated
 @Configuration
 public class SecurityConfig {
 
