@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 
     // https://plugins.gradle.org/plugin/org.springframework.boot
     id 'org.springframework.boot' version '3.3.5'
@@ -34,6 +35,8 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: "${springBootVersion}"
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
 
     //
     // Thymeleaf
@@ -48,6 +51,15 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    // report is always generated after tests run
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
 }
 
 //
