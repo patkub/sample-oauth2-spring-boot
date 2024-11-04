@@ -30,14 +30,20 @@ class HomeControllerTest {
 
     @Test
     public void testHomeModel(){
+        // Act
         String returnValue = homeController.home(model, principal);
+
+        // Assert
         verify(model, times(1)).addAttribute(eq("profile"), Mockito.any());
         assertEquals("index", returnValue);
     }
 
     @Test
     public void testHomeModelNullPrincipal(){
+        // Act
         String returnValue = homeController.home(model, null);
+
+        // Assert
         verify(model, never()).addAttribute(eq("profile"), Mockito.any());
         assertEquals("index", returnValue);
     }

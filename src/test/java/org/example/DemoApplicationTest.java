@@ -6,6 +6,7 @@ public class DemoApplicationTest {
 
     @Test
     public void main() {
+        // Act
         DemoApplication.main(new String[] {});
     }
 
