@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         return http.authorizeExchange(authorize -> {
-                    authorize.pathMatchers("/", "/images/**").permitAll();
+                    authorize.pathMatchers("/", "/images/**", "/css/**").permitAll();
                     authorize.anyExchange().authenticated();
                 })
                 .oauth2Login(withDefaults())

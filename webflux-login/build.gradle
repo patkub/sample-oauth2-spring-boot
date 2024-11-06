@@ -27,7 +27,7 @@ dependencies {
     //
     // SpringBoot
     //
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${springBootVersion}"
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: "${springBootVersion}"
