@@ -1,2 +1,4 @@
 rootProject.name = 'sample-oauth2-spring-boot'
+include 'mvc-login'
+include 'webflux-login'
 

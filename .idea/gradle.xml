@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/mvc-login" />
+            <option value="$PROJECT_DIR$/webflux-login" />
           </set>
         </option>
       </GradleProjectSettings>

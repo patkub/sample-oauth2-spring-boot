@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a fork of Okta's [Spring Boot Login - MVC](https://github.com/auth0-samples/auth0-spring-boot-login-samples/tree/master/mvc-login), without Okta Spring Boot Starter. 
+This is a fork of Okta's [Spring Boot Login Samples](https://github.com/auth0-samples/auth0-spring-boot-login-samples), without Okta Spring Boot Starter. 
 
 ## Requirements
 
@@ -12,19 +12,22 @@ This is a fork of Okta's [Spring Boot Login - MVC](https://github.com/auth0-samp
 
 ### Auth0 Dashboard
 1. On the [Auth0 Dashboard](https://manage.auth0.com/#/clients) create a new Application of type **Regular Web Application**.
-1. On the **Settings** tab of your application, add the URL `http://localhost:3000/login/oauth2/code/okta` to the **Allowed Callback URLs** field.
-1. On the **Settings** tab of your application, add the URL `http://localhost:3000/` to the **Allowed Logout URLs** field.
+1. On the **Settings** tab of your application, add the following URLs to the **Allowed Callback URLs** field.
+   - `http://localhost:3000/login/oauth2/code/okta, http://localhost:3001/login/oauth2/code/okta`
+1. On the **Settings** tab of your application, add the following URLs to the **Allowed Logout URLs** field.
+   - `http://localhost:3000, http://localhost:3001`
 1. Save the changes to your application settings. Don't close this page; you'll need some of the settings when configuring the application below.
 
 ### Application configuration
 
-Copy `src/main/resources/application.yml.example` to `src/main/resources/application.yml`:
+Create application.yml by copying example config:
 
 ```bash
-cp src/main/resources/application.yml.example src/main/resources/application.yml
+cp mvc-login/src/main/resources/application.yml.example mvc-login/src/main/resources/application.yml
+cp webflux-login/src/main/resources/application.yml.example webflux-login/src/main/resources/application.yml
 ```
 
-Set the application values in the `src/main/resources/application.yml` file to the values of your Auth0 application.
+Set the application values in the `src/main/resources/application.yml` file to the values of your Auth0 application for both mvc-login and webflux-login subprojects.
 
 ```yaml
 issuer-uri: https://{YOUR-DOMAIN}/
@@ -32,47 +35,43 @@ client-id: {YOUR-CLIENT-ID}
 client-secret: {YOUR-CLIENT-SECRET}
 ```
 
-## Running the sample
+## Running the MVC sample
 
 Open a terminal, go to the project root directory and run the following command:
 
 Linux or MacOS:
 
 ```bash
-./gradlew bootRun
+./gradlew :mvc-login:bootRun
 ```
 
 Windows:
 
 ```bash
-gradlew.bat bootRun 
+gradlew.bat :mvc-login:bootRun 
 ```
 
 The application will be accessible at http://localhost:3000.
 
-### Running the sample with podman
+## Running the WebFlux sample
 
-In order to run the example with [Podman](https://podman.io/docs/installation) you need to have `podman` installed.
-
-You also need to set the client values as explained [previously](#application-configuration).
-
-Execute the command to run Podman for your environment:
+Open a terminal, go to the project root directory and run the following command:
 
 Linux or MacOS:
 
 ```bash
-sh exec.sh
+./gradlew :webflux-login:bootRun
 ```
 
 Windows:
 
 ```bash
-.\exec.ps1
+gradlew.bat :webflux-login:bootRun 
 ```
 
-The application will be accessible at http://localhost:3000.
+The application will be accessible at http://localhost:3001.
 
-## Upgrading the sample
+## Upgrading the samples
 
 Use [OpenRewrite](https://docs.openrewrite.org/) to upgrade to latest Java and SpringBoot.
 
