@@ -3,7 +3,40 @@ name: Build
 on: [push]
 
 jobs:
-  build:
+  mvc-login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Build with Gradle
+        run: ./gradlew build
+      - name: Unit Test with Gradle
+        run: ./gradlew test
+      - name: Generate JaCoCo badge
+        id: jacoco
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
+          badges-directory: badges
+          generate-branches-badge: true
+          generate-summary: true
+      - name: Log coverage percentages to workflow output
+        run: |
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branches = ${{ steps.jacoco.outputs.branches }}"
+      - name: Upload JaCoCo coverage report as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: build/reports/jacoco/test/
+  webflux-login:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
