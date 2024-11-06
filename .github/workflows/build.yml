@@ -15,15 +15,15 @@ jobs:
           java-version: 21
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Build with Gradle
-        run: ./gradlew build
-      - name: Unit Test with Gradle
-        run: ./gradlew test
+      - name: Build MVC Login with Gradle
+        run: ./gradlew :mvc-login:build
+      - name: Unit Test MVC Login with Gradle
+        run: ./gradlew :mvc-login:test
       - name: Generate JaCoCo badge
         id: jacoco
         uses: cicirello/jacoco-badge-generator@v2
         with:
-          jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
+          jacoco-csv-file: mvc-login/build/reports/jacoco/test/jacocoTestReport.csv
           badges-directory: badges
           generate-branches-badge: true
           generate-summary: true
@@ -34,8 +34,8 @@ jobs:
       - name: Upload JaCoCo coverage report as a workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: jacoco-report
-          path: build/reports/jacoco/test/
+          name: jacoco-report-mvc-login
+          path: mvc-login/build/reports/jacoco/test/
   webflux-login:
     runs-on: ubuntu-latest
     steps:
@@ -48,15 +48,15 @@ jobs:
           java-version: 21
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Build with Gradle
-        run: ./gradlew build
-      - name: Unit Test with Gradle
-        run: ./gradlew test
+      - name: Build WebFlux Login with Gradle
+        run: ./gradlew :webflux-login:build
+      - name: Unit Test WebFlux Login with Gradle
+        run: ./gradlew :webflux-login:test
       - name: Generate JaCoCo badge
         id: jacoco
         uses: cicirello/jacoco-badge-generator@v2
         with:
-          jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
+          jacoco-csv-file: webflux-login/build/reports/jacoco/test/jacocoTestReport.csv
           badges-directory: badges
           generate-branches-badge: true
           generate-summary: true
@@ -67,5 +67,5 @@ jobs:
       - name: Upload JaCoCo coverage report as a workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: jacoco-report
-          path: build/reports/jacoco/test/
+          name: jacoco-report-webflux-login
+          path: webflux-login/build/reports/jacoco/test/
