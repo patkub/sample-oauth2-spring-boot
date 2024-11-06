@@ -1,4 +1,4 @@
-package org.example;
+package org.example.mvc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +21,7 @@ import java.util.Map;
 public class ProfileController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-    private final static ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+    public static ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
     @GetMapping("/profile")
     public String profile(Model model, @AuthenticationPrincipal OidcUser oidcUser) {
