@@ -43,4 +43,4 @@ bin/
 
 ### Custom ###
 # Spring Boot config with secrets
-src/main/resources/application.yml
+**/src/main/resources/application.yml
