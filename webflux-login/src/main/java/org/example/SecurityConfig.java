@@ -21,9 +21,9 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
-    @Value("${okta.oauth2.issuer}")
+    @Value("${spring.security.oauth2.client.provider.okta.issuer-uri}")
     private String issuer;
-    @Value("${okta.oauth2.client-id}")
+    @Value("${spring.security.oauth2.client.registration.okta.client-id}")
     private String clientId;
 
     @Bean
@@ -45,10 +45,10 @@ public class SecurityConfig {
     @Bean
     public ServerLogoutSuccessHandler logoutSuccessHandler() {
         // Change this as needed to URI where users should be redirected to after logout
-        String returnTo = "http://localhost:3000/";
+        String returnTo = "http://localhost:3001/";
 
         // Build the URL to log the user out of Auth0 and redirect them to the home page.
-        // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3000
+        // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3001
         String logoutUrl = UriComponentsBuilder
                 .fromHttpUrl(issuer + "v2/logout?client_id={clientId}&returnTo={returnTo}")
                 .encode()

@@ -38,6 +38,8 @@ public class SecurityConfig {
         return (request, response, authentication) -> {
             try {
                 String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+                // The URL to log the user out of Auth0 and redirect them to the home page.
+                // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3000
                 response.sendRedirect(issuer + "v2/logout?client_id=" + clientId + "&returnTo=" + baseUrl);
             } catch (IOException e) {
                 throw new RuntimeException(e);
