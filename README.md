@@ -27,7 +27,7 @@ cp mvc-login/src/main/resources/application.yml.example mvc-login/src/main/resou
 cp webflux-login/src/main/resources/application.yml.example webflux-login/src/main/resources/application.yml
 ```
 
-Set the application values in the `src/main/resources/application.yml` file to the values of your Auth0 application.
+Set the application values in the `src/main/resources/application.yml` file to the values of your Auth0 application for both mvc-login and webflux-login subprojects.
 
 ```yaml
 issuer-uri: https://{YOUR-DOMAIN}/
@@ -71,7 +71,7 @@ gradlew.bat :webflux-login:bootRun
 
 The application will be accessible at http://localhost:3001.
 
-## Upgrading the sample
+## Upgrading the samples
 
 Use [OpenRewrite](https://docs.openrewrite.org/) to upgrade to latest Java and SpringBoot.
 
