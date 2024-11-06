@@ -21,7 +21,7 @@ import java.util.Map;
 public class ProfileController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-    public final static ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+    public static ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
     @GetMapping("/profile")
     public String profile(Model model, @AuthenticationPrincipal OidcUser oidcUser) {
