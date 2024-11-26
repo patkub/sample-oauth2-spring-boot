@@ -17,6 +17,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 /**
  * Configures the application's security settings
  */
+@Generated
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
