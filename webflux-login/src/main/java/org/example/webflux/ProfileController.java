@@ -1,8 +1,7 @@
 package org.example.webflux;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,7 +20,7 @@ import java.util.Map;
 public class ProfileController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-    public static ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+    public static ObjectMapper mapper = new ObjectMapper();
 
     @GetMapping("/profile")
     public String profile(Model model, @AuthenticationPrincipal OidcUser oidcUser) {
@@ -33,7 +32,7 @@ public class ProfileController {
     private String claimsToJson(Map<String, Object> claims) {
         try {
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(claims);
-        } catch (JsonProcessingException jpe) {
+        } catch (JacksonException jpe) {
             log.error("Error parsing claims to JSON", jpe);
         }
         return "Error parsing claims to JSON.";

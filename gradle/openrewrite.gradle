@@ -3,10 +3,10 @@
 
 rewrite {
     // https://docs.openrewrite.org/recipes/java/migrate/upgradetojava21
-    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+//    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
 
-    // https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3
-    activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3")
+    // https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-community-edition
+    activeRecipe("org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0")
 
     exclusion(
         "gradle/openrewrite.gradle"
@@ -17,7 +17,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.openrewrite.recipe/rewrite-recipe-bom
     rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:latest.release"))
     // https://mvnrepository.com/artifact/org.openrewrite.recipe/rewrite-migrate-java
-    rewrite("org.openrewrite.recipe:rewrite-migrate-java:latest.release")
+//    rewrite("org.openrewrite.recipe:rewrite-migrate-java:latest.release")
     // https://mvnrepository.com/artifact/org.openrewrite.recipe/rewrite-spring
     rewrite("org.openrewrite.recipe:rewrite-spring:latest.release")
 }
