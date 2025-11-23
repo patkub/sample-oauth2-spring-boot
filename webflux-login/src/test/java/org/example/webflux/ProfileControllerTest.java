@@ -1,14 +1,15 @@
 package org.example.webflux;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.ui.Model;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class ProfileControllerTest {
 
     private ProfileController profileController;
@@ -45,7 +46,7 @@ public class ProfileControllerTest {
     }
 
     @Test
-    public void testProfileModel_Exception() throws JsonProcessingException {
+    public void testProfileModel_Exception() throws JacksonException {
         // Prepare
         // Mock Logger
         Logger mockedLogger = Mockito.mock(Logger.class);
@@ -53,7 +54,7 @@ public class ProfileControllerTest {
 
         // Mocked ObjectWriter calls writeValueAsString() and throws JsonProcessingException
         ObjectWriter mockedWriter = Mockito.mock(ObjectWriter.class);
-        when(mockedWriter.writeValueAsString(Mockito.any())).thenThrow(new JsonProcessingException("Error"){});
+        when(mockedWriter.writeValueAsString(Mockito.any())).thenThrow(new JacksonException("Error"){});
 
         // Mocked ObjectMapper returns mocked ObjectWriter
         ObjectMapper mockedMapper = Mockito.mock(ObjectMapper.class);

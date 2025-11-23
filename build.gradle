@@ -1,7 +1,7 @@
 plugins {
     // Use OpenRewrite to upgrade Java / SpringBoot version: https://docs.openrewrite.org/
     // https://plugins.gradle.org/plugin/org.openrewrite.rewrite
-    id 'org.openrewrite.rewrite' version '6.26.0'
+    id 'org.openrewrite.rewrite' version '7.21.0'
 }
 
 group = 'org.example'
