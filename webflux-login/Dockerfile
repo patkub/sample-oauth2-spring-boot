@@ -1,4 +1,5 @@
-FROM docker.io/gradle:8-jdk21-alpine
+# WebFlux version needs full image
+FROM docker.io/gradle:9.2.1-jdk21
 
 WORKDIR /tmp
 ADD . /tmp

@@ -1,4 +1,4 @@
-FROM docker.io/gradle:8-jdk21-alpine
+FROM docker.io/gradle:9.2.1-jdk21-alpine
 
 WORKDIR /tmp
 ADD . /tmp
